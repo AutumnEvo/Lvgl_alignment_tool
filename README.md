@@ -1,2 +1,2 @@
 # lvgl_alignment_tool
-Do you hate figuring out where and how to put things in Lvgl studio welllllll fear no longer for this cancer of a program in the form of a debug menu does it for you!!!!! pick what you want to create move it to where and then get all the alignment info you need!!! ^-^
+Do you hate endlessly fiddling and trying to figure out how to put things in Lvgl? Fear no more! this cursed little debug menu is here to save OUR sanity. for this cancer of a program in the form of a debug menu helps!!! Pick what you want to spawn (arc, bar, chart, etc.) and push it around instantly grab the alignment values you need for your code. No more guesswork, no more rage runing Cmake. Just spawn, align, copy, paste, done. Sanity restored ^-^
