@@ -166,6 +166,13 @@ private:
     static void update_object_list();
     static void update_controls_for_active_object();
     
+    // Modern UI helpers
+    static lv_obj_t* create_modern_button(lv_obj_t* parent, const char* text, lv_event_cb_t callback, uint32_t color, int width, int height);
+    static void create_transform_controls(lv_obj_t* parent);
+    static void create_style_controls(lv_obj_t* parent);
+    static void create_widget_specific_controls(lv_obj_t* parent);
+    static lv_obj_t* create_control_section(lv_obj_t* parent, const char* title, int x, int y);
+    
     // Widget spawning
     static void spawn_widget(WidgetType type);
     static lv_obj_t* create_widget_instance(WidgetType type, lv_obj_t* parent);
@@ -204,6 +211,20 @@ private:
     static void move_right_fast_event(lv_event_t* e);
     static void move_up_fast_event(lv_event_t* e);
     static void move_down_fast_event(lv_event_t* e);
+    // Snap helpers: position object to parent edges
+    static void snap_left_event(lv_event_t* e);
+    static void snap_right_event(lv_event_t* e);
+    static void snap_top_event(lv_event_t* e);
+    static void snap_bottom_event(lv_event_t* e);
+    static void snap_center_h_event(lv_event_t* e);
+    static void snap_center_v_event(lv_event_t* e);
+    static void snap_center_event(lv_event_t* e);
+    // Grid snapping
+    static bool grid_snap_enabled;
+    static int grid_size;
+    static void snap_to_grid_event(lv_event_t* e);
+    static void grid_size_plus_event(lv_event_t* e);
+    static void grid_size_minus_event(lv_event_t* e);
     static void rotate_cw_event(lv_event_t* e);
     static void rotate_ccw_event(lv_event_t* e);
     static void resize_wider_event(lv_event_t* e);
@@ -354,6 +375,14 @@ private:
     static lv_obj_t* create_button(lv_obj_t* parent, const char* text, lv_event_cb_t callback, int x, int y, int w = 100, int h = 40);
     static void clear_content_area();
     static void export_object_values(const SpawnedObject& obj);
+    // Section toggle helper
+    static void toggle_section_event(lv_event_t* e);
+
+    // Widget-specific controls parent (used so we can create a nested container)
+    static lv_obj_t* widget_controls_parent;
+
+    // Persistent grid label pointer so grid toggles update in-place
+    static lv_obj_t* grid_label_ptr;
 
 public:
     // Initialize the debug alignment system on any screen
